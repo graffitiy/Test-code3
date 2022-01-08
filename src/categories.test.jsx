@@ -13,6 +13,6 @@ describe('Categories', () => {
     const { container, getByRole } = renderComponent();
     const button = getByRole('button', { name: '한식' });
     fireEvent.click(button);
-    expect(container).toHaveTextContent('한식(v)');
+    expect(container).toHaveTextContent('한식(V)');
   });
 });
