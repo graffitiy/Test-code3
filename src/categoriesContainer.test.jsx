@@ -3,6 +3,8 @@ import { useSelector } from 'react-redux';
 import CategoriesContainer from './categoriesContainer';
 import { CATEGORIES } from './constants';
 
+jest.mock('react-redux');
+
 describe('CategoriesContainer', () => {
   useSelector.mockImplementation((selector) => selector({
     categories: CATEGORIES,
