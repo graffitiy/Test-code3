@@ -1,8 +1,14 @@
 import { render } from '@testing-library/react';
+import { useSelector } from 'react-redux';
 import CategoriesContainer from './categoriesContainer';
+import { CATEGORIES } from './constants';
 
 describe('CategoriesContainer', () => {
+  useSelector.mockImplementation((selector) => selector({
+    categories: CATEGORIES,
+  }));
   it('render', () => {
-    render(<CategoriesContainer />);
+    const { container } = render(<CategoriesContainer categories={CATEGORIES} />);
+    expect(container).toHaveTextContent('한식');
   });
 });
