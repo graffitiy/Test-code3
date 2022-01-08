@@ -2,7 +2,7 @@ import { useDispatch } from 'react-redux';
 import { useEffect } from 'react';
 import CategoriesContainer from './categoriesContainer';
 import setCategories from './actions';
-import fetchCategories from './api';
+import fetchCategories from './api/api';
 
 export default function App() {
   const dispatch = useDispatch();
