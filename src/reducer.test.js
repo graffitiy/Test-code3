@@ -1,6 +1,6 @@
 import reducer from './reducer';
-import { CATEGORIES } from './constants';
-import { setCategories } from './actions';
+import { CATEGORIES, REGIONS } from './constants';
+import { setCategories, setRegions } from './actions';
 
 describe('reducer', () => {
   describe('setCategories', () => {
@@ -15,6 +15,18 @@ describe('reducer', () => {
       );
 
       expect(categories.length).toBe(4);
+    });
+  });
+
+  describe('setRegions', () => {
+    const previousState = {
+      regions: [],
+    };
+
+    it('지역을 저장한다.', () => {
+      const { regions } = reducer(previousState, setRegions(REGIONS));
+
+      expect(regions.length).toBe(2);
     });
   });
 });
