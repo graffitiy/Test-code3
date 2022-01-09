@@ -1,6 +1,6 @@
 import reducer from './reducer';
-import setCategories from './actions';
 import { CATEGORIES } from './constants';
+import { setCategories } from './actions';
 
 describe('reducer', () => {
   describe('setCategories', () => {

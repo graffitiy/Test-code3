@@ -1,8 +1,11 @@
-import { GET_CATEGORIES } from './urls';
+import { GET_CATEGORIES, GET_REGIONS } from './urls';
 
-const fetchCategories = async () => {
+export const fetchCategories = async () => {
   const response = await fetch(GET_CATEGORIES);
   return response.json();
 };
 
-export default fetchCategories;
+export async function fetchRegions() {
+  const regions = await fetch(GET_REGIONS);
+  return regions.json();
+}
