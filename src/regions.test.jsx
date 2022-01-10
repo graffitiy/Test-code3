@@ -28,7 +28,7 @@ describe('regions', () => {
     });
 
     it('선택한 지역에는 V가 표시된다', () => {
-      const { container } = renderComponent(REGIONS);
+      const { container } = renderComponent(REGIONS, '서울');
 
       expect(container).toHaveTextContent('서울(V)');
     });
