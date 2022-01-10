@@ -1,6 +1,8 @@
 import reducer from './reducer';
 import { CATEGORIES, REGIONS } from './constants';
-import { setCategories, setRegions } from './actions';
+import {
+  setCategories, setRegions, setCategory, setRegion,
+} from './actions';
 
 describe('reducer', () => {
   describe('setCategories', () => {
@@ -27,6 +29,30 @@ describe('reducer', () => {
       const { regions } = reducer(previousState, setRegions(REGIONS));
 
       expect(regions.length).toBe(2);
+    });
+  });
+
+  describe('setCategory', () => {
+    const previousSate = {
+      category: '',
+    };
+
+    it('선택된 카테고리를 저장한다', () => {
+      const { category } = reducer(previousSate, setCategory('양식'));
+
+      expect(category).toBe('양식');
+    });
+  });
+
+  describe('setRegion', () => {
+    const previousSate = {
+      region: '',
+    };
+
+    it('선택된 지역을 저장한다', () => {
+      const { region } = reducer(previousSate, setRegion('서울'));
+
+      expect(region).toBe('서울');
     });
   });
 });
