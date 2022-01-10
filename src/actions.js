@@ -35,8 +35,8 @@ export const setRestaurants = (restaurants) => ({
   },
 });
 
-export const loadRestaurants = () => async (dispatch) => {
-  const restaurants = await fetchRestaurants();
+export const loadRestaurants = (region, category) => async (dispatch) => {
+  const restaurants = await fetchRestaurants(region, category);
   dispatch(setRestaurants(restaurants));
 };
 
