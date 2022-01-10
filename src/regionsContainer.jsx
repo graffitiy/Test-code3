@@ -1,4 +1,5 @@
 import { useSelector } from 'react-redux';
+import Regions from './regions';
 
 const RegionsContainer = () => {
   const { regions } = useSelector((state) => ({
@@ -6,11 +7,7 @@ const RegionsContainer = () => {
   }));
 
   return (
-    <ul>
-      {regions.map((region) => (
-        <li key={region.id}>{region.name}</li>
-      ))}
-    </ul>
+    <Regions regions={regions} />
   );
 };
 
