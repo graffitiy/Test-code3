@@ -2,20 +2,33 @@ import { render, fireEvent } from '@testing-library/react';
 import Categories from './categories';
 import { CATEGORIES } from './constants';
 
+const updateSelectedCategory = jest.fn();
+
 describe('Categories', () => {
-  const renderComponent = (categories) => render(<Categories categories={categories} />);
+  const renderComponent = (categories, selectedCategory) => render(
+    <Categories
+      categories={categories}
+      updateSelectedCategory={updateSelectedCategory}
+      selectedCategory={selectedCategory}
+    />,
+  );
 
   it('render', () => {
-    const { container } = renderComponent(CATEGORIES);
+    const { container } = renderComponent(CATEGORIES, '');
 
     expect(container).toHaveTextContent('한식');
   });
 
   context('카테고리가 있을 때', () => {
-    it('카테고리를 클릭하면 V가 표시된다.', () => {
-      const { container, getByRole } = renderComponent(CATEGORIES);
+    it('카테고리를 클릭하면 updateSelectedCategory가 호출된다', () => {
+      const { getByRole } = renderComponent(CATEGORIES, '');
       const button = getByRole('button', { name: '한식' });
       fireEvent.click(button);
+      expect(updateSelectedCategory).toBeCalled();
+    });
+
+    it('선택한 카테고리 뒤에는 (V)글자가 추가된다', () => {
+      const { container } = renderComponent(CATEGORIES, '한식');
       expect(container).toHaveTextContent('한식(V)');
     });
   });
