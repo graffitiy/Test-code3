@@ -1,10 +1,6 @@
-import { useState } from 'react';
-
-const Regions = ({ regions }) => {
-  const [selected, setSelected] = useState();
-
+const Regions = ({ regions, selectedRegion, updateSelectedRegion }) => {
   const handleClickButton = ({ target: { name } }) => {
-    setSelected(name);
+    updateSelectedRegion(name);
   };
 
   if (!regions || regions.length === 0) {
@@ -16,7 +12,7 @@ const Regions = ({ regions }) => {
       {regions.map(({ id, name }) => (
         <li key={id}>
           <button type="button" name={name} onClick={handleClickButton}>
-            {`${name}${selected === name ? '(V)' : ''}`}
+            {`${name}${selectedRegion === name ? '(V)' : ''}`}
           </button>
         </li>
       ))}
