@@ -9,7 +9,7 @@ describe('RestaurantsContainer', () => {
   const dispatch = jest.fn();
   useDispatch.mockImplementation(() => dispatch);
   useSelector.mockImplementation((selector) => selector({
-    category: '양식',
+    categoryId: 1,
     region: '수원',
     restaurants: RESTAURANTS,
   }));

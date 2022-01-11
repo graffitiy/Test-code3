@@ -1,9 +1,9 @@
 import { fetchRegions, fetchCategories, fetchRestaurants } from './api/api';
 
-export const setCategory = (category) => ({
+export const setCategory = (categoryId) => ({
   type: 'setCategory',
   payload: {
-    category,
+    categoryId,
   },
 });
 
@@ -35,8 +35,8 @@ export const setRestaurants = (restaurants) => ({
   },
 });
 
-export const loadRestaurants = (region, category) => async (dispatch) => {
-  const restaurants = await fetchRestaurants(region, category);
+export const loadRestaurants = (region, categoryId) => async (dispatch) => {
+  const restaurants = await fetchRestaurants(region, categoryId);
   dispatch(setRestaurants(restaurants));
 };
 

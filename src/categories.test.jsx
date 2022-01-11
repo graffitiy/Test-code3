@@ -5,11 +5,11 @@ import { CATEGORIES } from './constants';
 const updateSelectedCategory = jest.fn();
 
 describe('Categories', () => {
-  const renderComponent = (categories, selectedCategory) => render(
+  const renderComponent = (categories, selectedCategoryId) => render(
     <Categories
       categories={categories}
       updateSelectedCategory={updateSelectedCategory}
-      selectedCategory={selectedCategory}
+      selectedCategoryId={selectedCategoryId}
     />,
   );
 
@@ -28,7 +28,7 @@ describe('Categories', () => {
     });
 
     it('선택한 카테고리 뒤에는 (V)글자가 추가된다', () => {
-      const { container } = renderComponent(CATEGORIES, '한식');
+      const { container } = renderComponent(CATEGORIES, 1);
       expect(container).toHaveTextContent('한식(V)');
     });
   });

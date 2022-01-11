@@ -2,7 +2,7 @@ const initialState = {
   categories: [],
   regions: [],
   restaurants: [],
-  category: '',
+  categoryId: 0,
   region: '',
 };
 
@@ -14,9 +14,9 @@ const reducers = {
     categories,
   }),
 
-  setCategory: (state, { payload: { category } }) => ({
+  setCategory: (state, { payload: { categoryId } }) => ({
     ...state,
-    category,
+    categoryId,
   }),
 
   setRegions: (state, { payload: { regions } }) => ({
