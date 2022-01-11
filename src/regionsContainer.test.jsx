@@ -11,7 +11,7 @@ describe('RegionsContainer', () => {
     region: '수원',
   }));
 
-  it('render', () => {
+  it('컴포넌트가 깨지지 않고 정상적으로 렌더링 된다', () => {
     const { container } = render(<RegionsContainer />);
     expect(container).toHaveTextContent('서울');
   });

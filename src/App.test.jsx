@@ -17,7 +17,7 @@ describe('App', () => {
     restaurants: [],
   }));
 
-  it('app render test', () => {
+  it('컴포넌트가 깨지지 않고 정상적으로 렌더링된다', () => {
     render(<App />);
   });
 });
