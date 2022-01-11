@@ -1,7 +1,7 @@
 import { render } from '@testing-library/react';
 import { useDispatch, useSelector } from 'react-redux';
 import { RESTAURANTS } from './constants';
-import RestaurantsContainer from './r   estaurantsContainer';
+import RestaurantsContainer from './restaurantsContainer';
 
 jest.mock('react-redux');
 
