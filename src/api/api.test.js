@@ -35,6 +35,7 @@ describe('api', () => {
 
     context('지역 또는 카테고리 값이 없으면', () => {
       it('빈 배열을 반환한다', async () => {
+        fetch.mockResponseOnce(JSON.stringify([]));
         const response = await fetchRestaurants();
 
         expect(response).toEqual([]);
@@ -43,9 +44,22 @@ describe('api', () => {
 
     context('지역과 카테고리 값이 모두 있으면', () => {
       it('조건에 맞는 데이터를 반환한다', async () => {
+        fetch.mockResponseOnce(JSON.stringify(RESTAURANTS));
         const response = await fetchRestaurants('서울', 1);
 
         expect(response).toEqual(RESTAURANTS);
+      });
+    });
+
+    context('에러가 발생하면', () => {
+      it('에러를 던진다', async () => {
+        fetch.mockReject(new Error('에러발생'));
+
+        try {
+          await fetchRestaurants();
+        } catch (error) {
+          expect(error.message).toBe('에러발생');
+        }
       });
     });
   });
